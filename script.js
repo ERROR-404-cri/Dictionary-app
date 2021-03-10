@@ -123,7 +123,6 @@ let ff= debounce(fetchDictionayData,150);
 searchBtn.addEventListener("click", debounce(fetchDictionayData,150));
 document.addEventListener("keydown",function(ev){
      if(ev?.key==="Enter"){
-    console.log("inn",ev?.key==="Enter");
         ff();
      }
 });
