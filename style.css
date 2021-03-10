@@ -1,0 +1,146 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: wheat;
+}
+
+#image {
+    display: none;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+#upper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#lowerDiv {
+    width: 65%;
+    margin: 0 auto;
+}
+
+#info {
+    display: flex;
+}
+
+#inp {
+    width: 50%;
+    border-radius: calc(0.4*44px);
+    height: 25px;
+    border: 1px solid lightgray;
+    outline: none;
+    box-shadow: 0px 1px 10px rgb(238, 236, 236);
+}
+
+#search {
+    width: 10%;
+    height: 28px;
+    border-radius: calc(0.4*44px);
+    border: 1px solid lightgray;
+    outline: none;
+    cursor: pointer;
+}
+
+#search:active {
+    background-color: black;
+    color: white;
+}
+
+#word {
+    font-weight: bolder;
+    font-size: larger;
+    text-transform: uppercase;
+    color: teal;
+}
+
+#defin::before {
+    content: 'Def: ';
+    font-family: cursive;
+    color: teal;
+}
+
+#eg::before {
+    content: 'example: ';
+    font-family: cursive;
+    color: teal;
+}
+
+#type::before {
+    content: 'as a: ';
+    font-family: cursive;
+    color: teal;
+}
+
+#loaderDiv {
+    position: absolute;
+    /* background-color: tomato; */
+    top: 50px;
+    width: 100%;
+    justify-content: center;
+    display: none;
+}
+
+#loader {
+    border: 1px solid teal;
+    width: 10px;
+    height: 10px;
+    margin: 0 2px;
+    border-radius: 50%;
+    background-color: teal;
+    display: inline-block;
+    animation: load 350ms linear 0s infinite alternate;
+    animation-fill-mode: forwards;
+}
+
+@keyframes load {
+    0% {
+        transform: translatey(0px);
+    }
+
+    100% {
+        transform: translatey(15px);
+    }
+}
+
+@media screen and (max-width: 670px) {
+    #image {
+        height: 35vw;
+        width: 35vw;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+
+    #info {
+        display: block;
+    }
+
+    #upper {
+        display: block;
+        width: 100%;
+    }
+
+    #search {
+        width: 20%;
+        margin: 5px auto;
+        height: 28px;
+        display: block;
+    }
+
+    #inp {
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    #loaderDiv {
+        position: absolute;
+        top: 80px;
+    }
+}
