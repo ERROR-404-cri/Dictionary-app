@@ -43,7 +43,7 @@ body {
     width: 10%;
     height: 28px;
     border-radius: calc(0.4*44px);
-    border: 1px solid lightgray;
+    border: 2px solid grey;
     outline: none;
     cursor: pointer;
 }
@@ -85,6 +85,39 @@ body {
     width: 100%;
     justify-content: center;
     display: none;
+}
+
+#nightMode {
+    position: absolute;
+    top: 0;
+    width: 10vw;
+    height: 2vw;
+    border: none;
+    border-radius: 10px;
+    background: lightgrey;
+    cursor: pointer;
+}
+
+#ball {
+    position: absolute;
+    top: 0;
+    width: 3vw;
+    height: 2vw;
+    background: tomato;
+    border-radius: 10px;
+    transition: 50ms linear 0s;
+}
+
+@media screen and (max-width: 670px) {
+    #nightMode {
+        width: 10vw;
+        height: 4.3vw;
+    }
+
+    #ball {
+        width: 3vw;
+        height: 4.3vw;
+    }
 }
 
 #loader {

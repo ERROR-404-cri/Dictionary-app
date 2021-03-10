@@ -3,6 +3,9 @@ let searchBtn = document.getElementById('search');
 let pic= document.getElementById('image');
 let defDiv= document.getElementById('defDiv');
 let loader =document.getElementById('loaderDiv');
+let nightMode= document.getElementById('nightMode');
+let ball= document.getElementById('ball');
+let ballFlag=true;
 let pixabayKey= `20604574-32ddade49411802adc7b5891c`;
 let picUrl=null;
 let DictionaryUrl = null;
@@ -74,6 +77,7 @@ async function fetchDictionayData() {
         let msg= document.createElement('h2');
         msg.id="msg";
         msg.textContent= "some error occured,try again :(";
+        defDiv.innerHTML=null;
         defDiv.append(msg);
     loader.style.display="none";
     }
@@ -120,9 +124,36 @@ let debounce= function(fun,delay){
     };
 };
 let ff= debounce(fetchDictionayData,150);
+
 searchBtn.addEventListener("click", debounce(fetchDictionayData,150));
-document.addEventListener("keydown",function(ev){
+input.addEventListener("keyup",function(ev){
      if(ev?.key==="Enter"){
         ff();
      }
 });
+
+nightMode.addEventListener("click",nightModeFunction)
+
+function nightModeFunction(){
+    if(ballFlag){
+        ballFlag=!ballFlag;
+        ball.style.transform= 'translateX(7vw)';
+        ball.style.background='teal';
+        document.body.style.background='black';
+        document.body.style.color="white";
+        searchBtn.style.color='white';
+        searchBtn.style.background='black';
+        input.style.background="lightgrey";
+    }
+    else{
+        ballFlag=!ballFlag;
+        ball.style.transform= 'translateX(0vw)'; 
+        ball.style.background='tomato';
+        document.body.style.background='white';  
+        document.body.style.color="black";
+        searchBtn.style.color='black';
+        searchBtn.style.background='white';
+        input.style.background="white";
+    }
+    
+}
