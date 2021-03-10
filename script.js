@@ -120,3 +120,10 @@ let timer;
     };
 };
 searchBtn.addEventListener("click", debounce(fetchDictionayData,150));
+document.addEventListener("keydown",function(ev){
+    // console.log("inn",ev?.key==="Enter");
+     if(ev?.key==="Enter"){
+    console.log("inn",ev?.key==="Enter");
+        fetchDictionayData();
+     }
+});
