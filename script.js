@@ -111,19 +111,19 @@ async function getPic(picTerm){
 };
 
 let debounce= function(fun,delay){
-let timer;
+    let timer;
     return function(){
         clearTimeout(timer);
           timer= setTimeout(() => {
-              fun();
+              fun.call(this);
           }, delay);
     };
 };
+let ff= debounce(fetchDictionayData,150);
 searchBtn.addEventListener("click", debounce(fetchDictionayData,150));
 document.addEventListener("keydown",function(ev){
-    // console.log("inn",ev?.key==="Enter");
      if(ev?.key==="Enter"){
     console.log("inn",ev?.key==="Enter");
-        fetchDictionayData();
+        ff();
      }
 });
