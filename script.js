@@ -57,13 +57,13 @@ async function fetchDictionayData() {
         res.definitions.forEach(item=>{
               let define= document.createElement('p');
               define.id="defin";
-              define.textContent= item.definition;
+              define.innerHtml= item.definition;
               let example= document.createElement('p');
               example.id="eg";
               example.innerHTML= item.example;
               let type= document.createElement('p');
               type.id= "type";
-              type.textContent= item.type;
+              type.innerHtml= item.type;
               let line= document.createElement('hr');
               frag.append(type);
               frag.append(define);
